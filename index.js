@@ -2,7 +2,7 @@ console.log("index.js");
 
 // var client  = mqtt.connect({ host:'test.mosquitto.org', port: 8081})
 // or
-var client = mqtt.connect('wss://test.mosquitto.org:8081/mqtt')
+var client = mqtt.connect('wss://mqtt.eclipseprojects.io:8081/mqtt')
 
 var pubTopic = document.getElementById('topic')
 var message = document.getElementById('payload')
