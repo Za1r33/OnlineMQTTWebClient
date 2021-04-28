@@ -12,7 +12,7 @@ var Topic = document.getElementById('topic').value;
 var Payload = document.getElementById('payload').value;
 
 client.on('message', function(Topic, Payload) {
-    $("#tableMessages tbody").prepend("<tr><td>" + Topic + "</td><td>" + Payload + "</td><td>" + d.toUTCString() + "</td></tr>")
+    $("#tableMessages tbody").prepend("<tr><td>" + Topic + "</td><td>" + Payload + "</td><td>" + d.toLocaleString() + "</td></tr>")
 
 })
 $(document).ready(function() {
@@ -23,11 +23,11 @@ $(document).ready(function() {
         })
         $('#published').click(function() {
             client.publish(pubTopic.value, message.value)
-            $("#tablePub tbody").prepend("<tr><td>" + pubTopic.value + "</td><td>" + message.value + "</td><td>" + d.toUTCString() + "</td></tr>")
+            $("#tablePub tbody").prepend("<tr><td>" + pubTopic.value + "</td><td>" + message.value + "</td><td>" + d.toLocaleString() + "</td></tr>")
         })
         $('#subscribe').click(function() {
             client.subscribe(subtopic.value)
-            $("#tableSub tbody").prepend("<tr><td>" + subtopic.value + "</td><td>" + d.toUTCString() + "</td></tr>")
+            $("#tableSub tbody").prepend("<tr><td>" + subtopic.value + "</td><td>" + d.toLocaleString() + "</td></tr>")
         })
         $('#unsubscribe').click(function() {
             var tables = $('#tableSub tbody tr').children()
