@@ -25,9 +25,23 @@ $(document).ready(function() {
             client.publish(pubTopic.value, message.value)
             $("#tablePub tbody").prepend("<tr><td>" + pubTopic.value + "</td><td>" + message.value + "</td><td>" + d.toLocaleString() + "</td></tr>")
         })
+        $('#published').click(function() {
+            if (payload.value == "") {
+                alert("Please Fill up the Field")
+            } else {
+                client.publish(topic.value, payload.value)
+            }
+        })
         $('#subscribe').click(function() {
             client.subscribe(subtopic.value)
             $("#tableSub tbody").prepend("<tr><td>" + subtopic.value + "</td><td>" + d.toLocaleString() + "</td></tr>")
+        })
+        $('#subscribe').click(function() {
+            if (subtopic.value == "") {
+                alert("Please Fill up the Field")
+            } else {
+                client.subscribe(subtopic.value)
+            }
         })
         $('#unsubscribe').click(function() {
             var tables = $('#tableSub tbody tr').children()
